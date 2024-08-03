@@ -3,10 +3,10 @@ from ibm_watson_machine_learning.foundation_models.utils.enums import ModelTypes
 from ibm_watson_machine_learning.foundation_models import Model
 import requests
 
-PROJECT_ID= "skills-network"
+PROJECT_ID= "#"
 
 credentials = {
-    "url": "https://us-south.ml.cloud.ibm.com"
+    #"url": "URL"
     #"apikey": API_KEY
 }
     
@@ -36,14 +36,17 @@ model = Model(
 def speech_to_text(audio_binary):
     base_url = "https://sn-watson-stt.labs.skills.network"
     api_url = base_url+'/speech-to-text/api/v1/recognize'
+    
     # Set up parameters for our HTTP reqeust
     params = {
         'model': 'en-US_Multimedia',
     }
     # Set up the body of our HTTP request
     body = audio_binary
+    
     # Send a HTTP Post request
     response = requests.post(api_url, params=params, data=audio_binary).json()
+    
     # Parse the response to get our transcribed text
     text = 'null'
     while bool(response.get('results')):
@@ -56,18 +59,22 @@ def speech_to_text(audio_binary):
 def text_to_speech(text, voice=""):
     base_url = "https://sn-watson-tts.labs.skills.network"
     api_url = base_url + '/text-to-speech/api/v1/synthesize?output=output_text.wav'
+    
     # Adding voice parameter in api_url if the user has selected a preferred voice
     if voice != "" and voice != "default":
         api_url += "&voice=" + voice
+    
     # Set the headers for our HTTP request
     headers = {
         'Accept': 'audio/wav',
         'Content-Type': 'application/json',
     }
+    
     # Set the body of our HTTP request
     json_data = {
         'text': text,
     }
+    
     # Send a HTTP Post reqeust to Watson Text-to-Speech Service
     response = requests.post(api_url, headers=headers, json=json_data)
     print('Text-to-Speech response:', response)
