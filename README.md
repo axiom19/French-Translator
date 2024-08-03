@@ -39,7 +39,8 @@ The main components of this project are:
 - HTML/CSS/JavaScript
 
 ## Demo
-
+![Demo Screenshot](https://github.com/axiom19/French-Translator/blob/main/demo/Demo%20SS.png)
+[Watch the Demo Video](https://github.com/axiom19/French-Translator/blob/main/demo/Demo%20Vid.mov)
 ---
 
 This project was created as a demonstration of integrating LLM technology with speech processing capabilities to create a practical language translation tool.
