@@ -1,6 +1,6 @@
 # French Translator
-
 This project is a web-based French translator that uses Large Language Models (LLM) to translate English sentences into French. It incorporates speech-to-text and text-to-speech capabilities for a more interactive user experience.
+Motivation: I am an A2 level French student and want to practice speaking French.
 
 ## Features
 
